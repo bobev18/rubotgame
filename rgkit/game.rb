@@ -3,13 +3,15 @@ require './board'
 require './bot'
 
 class Game
-  attr_accessor :player1, :player2, :board, :max_turns, :players
+  attr_accessor :player1, :player2, :board, :max_turns, :players, :turn
+  
   def initialize config
     @config = config
     @player1 = Player.new @config, 1, "#FF0000"
     @player2 = Player.new @config, 2, "#0000FF"
     @board = Board.new config
     @max_turns = 100
+    @turn = 0
     @players = [@player1, @player2]
   end
   
@@ -29,7 +31,7 @@ class Game
           bot.player_id != for_player.id
       end
     end
-    {robots: game}
+    {robots: game, turn: @turn}
   end
   
   def spawn

@@ -13,6 +13,7 @@ describe Game do
     @game.players.should =~ [@game.player1, @game.player2]
     @game.board.should be_an_instance_of Board
     @game.max_turns.should eq @config.max_turns
+    @game.turn.should eq 0
   end
   it "can provide 'game' hash" do
     @game.game_hash.should be_an_instance_of Hash
@@ -49,6 +50,7 @@ describe Game do
   it "game hash has key :robots" do
     @game_hash.should include(:robots)
     @game_hash.should include(:turn)
+    @game_hash[:turn].should eq @game.turn
   end
   it "game hash includes bots of all players" do
     @game_hash[:robots].size.should eq @game.player1.bots.size + @game.player1.bots.size
