@@ -6,8 +6,8 @@ class Game
   attr_accessor :player1, :player2, :board, :max_turns, :players
   def initialize config
     @config = config
-    @player1 = Player.new 1, "#FF0000"
-    @player2 = Player.new 2, "#0000FF"
+    @player1 = Player.new @config, 1, "#FF0000"
+    @player2 = Player.new @config, 2, "#0000FF"
     @board = Board.new config
     @max_turns = 100
     @players = [@player1, @player2]
@@ -32,14 +32,11 @@ class Game
     {robots: game}
   end
   
-  def spawn_one coodrs, player
-    Bot.new @config, player.id, coodrs, player.bots.size
-  end
-
   def spawn
     pool = @board.spawn_coord.sample(5*players.size)
     pool.each_slice(5).zip(players) do |data|
-      data[0].each { |coords| data[1].bots << spawn_one(coords, data[1]) }
+      data[0].each { |coords| data[1].spawn coords }
     end
+    nil
   end
 end
