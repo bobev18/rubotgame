@@ -1,6 +1,4 @@
 default:
-  max_hp: 50
-  max_turns: 100
   spawns: [
     [7,1],[8,1],[9,1],[10,1],[11,1],
     [5,2],[6,2],[12,2],[13,2],
@@ -45,6 +43,10 @@ default:
     [10,18],[11,18],[12,18],[13,18],[14,18],[15,18],[16,18],[17,18],[18,18]
   ]
   board_size: 18
+  max_turns: 100
+  spawns_per_player: 5
+  spawn_cycle_turns: 10
+  max_hp: 50
   bump_damage: 5
   attack_damage_min: 8
   attack_damage_max: 10
@@ -53,11 +55,13 @@ default:
   behaviour_on_error: :defend
 
 test:
-  max_hp: 100
-  max_turns: 100
   spawns: [[0,0],[1,0],[2,0],[3,0],[4,0],[14,18],[15,18],[16,18],[17,18],[18,18]]
   obstacles: []
   board_size: 18
+  max_turns: 100
+  spawns_per_player: 5
+  spawn_cycle_turns: 10
+  max_hp: 100
   bump_damage: 1
   attack_damage_min: 1
   attack_damage_max: 1

@@ -4,10 +4,11 @@ require './bot'
 
 class Game
   attr_accessor :player1, :player2, :board, :max_turns
-  def initialize
-    @player1 = Player.new
-    @player2 = Player.new
-    @board = Board.new
+  def initialize config
+    @config = config
+    @player1 = Player.new 1, "#FF0000"
+    @player2 = Player.new 2, "#0000FF"
+    @board = Board.new config
     @max_turns = 100
   end
   
@@ -19,7 +20,7 @@ class Game
   end
   
   def spawn_one coodrs, player
-    Bot.new player.id, coodrs, player.bots.size
+    Bot.new @config, player.id, coodrs, player.bots.size
   end
 
   def spawn
