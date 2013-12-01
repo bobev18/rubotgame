@@ -48,6 +48,7 @@ describe Game do
   end
   it "game hash has key :robots" do
     @game_hash.should include(:robots)
+    @game_hash.should include(:turn)
   end
   it "game hash includes bots of all players" do
     @game_hash[:robots].size.should eq @game.player1.bots.size + @game.player1.bots.size
