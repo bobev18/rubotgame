@@ -9,6 +9,8 @@ describe Game do
   it "has the attributes" do
     @game.player1.should be_an_instance_of Player
     @game.player2.should be_an_instance_of Player
+    @game.players.should be_an_instance_of Array
+    @game.players.should =~ [@game.player1, @game.player2]
     @game.board.should be_an_instance_of Board
     @game.max_turns.should eq @config.max_turns
   end
@@ -20,9 +22,9 @@ describe Game do
     game_dict.should be_an_instance_of Hash
     game_dict.should include(:robots)
     game_dict[:robots].size.should eq @game.player1.bots.size + @game.player1.bots.size
-    # @game.spawn
-    # game_dict = @game.get_game_dict
-    # game_dict[:robots].size.should eq @game.player1.bots.size + @game.player1.bots.size
+    @game.spawn
+    game_dict = @game.get_game_dict
+    game_dict[:robots].size.should eq @game.player1.bots.size + @game.player1.bots.size
   end
   it "can spawn robots" do
     old_p1_bots = Array.new @game.player1.bots
