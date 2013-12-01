@@ -21,10 +21,14 @@ describe Game do
     game_dict[:robots].size.should eq @game.player1.bots.size + @game.player1.bots.size
   end
   it "can spawn robots" do
-    old_p1_bots = @game.player1.bots
-    old_p2_bots = @game.player2.bots
+    old_p1_bots = Array.new @game.player1.bots
+    old_p2_bots = Array.new @game.player2.bots
     @game.spawn
     @game.player1.bots.size.should eq old_p1_bots.size + 5
+    @game.player2.bots.size.should eq old_p2_bots.size + 5
+    
+    @game.player1.bots.each { |bot| Board.new().spawn_coord.should include(bot.location) }
+
   end
   after(:each) do
     @game = nil

@@ -25,6 +25,8 @@ class Game
   def spawn
     players = [@player1, @player2]
     pool = @board.spawn_coord.sample(5*players.size)
-    pool.each_slice(5).zip(players) { |data| puts data.inspect; data[1].bots << spawn_one(*data); puts "bots: #{data[1].bots.inspect}" }
+    pool.each_slice(5).zip(players) do |data|
+      data[0].each { |coords| data[1].bots << spawn_one(coords, data[1]) }
+    end
   end
 end
