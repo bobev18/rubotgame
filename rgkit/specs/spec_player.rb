@@ -7,7 +7,7 @@ describe Player do
     @player.should be_an_instance_of Player
   end
   it "has the attributes" do
-    @player.id.should eq 1
+    @player.id.should eq be_an_instance_of Fixnum
     @player.color.should eq "#FF0000"
     @player.bots.should eq []
     @player.source.should eq nil
