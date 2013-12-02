@@ -16,4 +16,11 @@ describe Bot do
   after(:each) do
     @bot = nil
   end
+  it "provides neighbouring locations" do
+    @bot.neighbour_locations.should =~ [[9,10],[10,9],[11,10],[10,11]]
+  end
+  it "validates commands" do
+    [['move', [9, 10]], ['attack', [9, 10]], ['guard'], ['suicide']
+    ].map { |command| @bot.validate(command) }.all?.should eq true
+  end
 end
