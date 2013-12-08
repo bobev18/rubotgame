@@ -1,6 +1,6 @@
-require './player'
-require './board'
-require './bot'
+# require './player'
+# require './board'
+# require './bot'
 
 class Game
   attr_accessor :player1, :player2, :board, :max_turns, :players, :turn

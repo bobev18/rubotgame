@@ -1,6 +1,6 @@
 class Bot
   attr_accessor :player_id, :location, :bot_id, :hp, :pending_command,
-    :on_guarg?
+    :on_guard
   
   def initialize player_id, location, bot_id, hp
     @player_id = player_id
@@ -8,7 +8,7 @@ class Bot
     @bot_id = bot_id
     @hp = hp
     @pending_command = nil
-    @on_guarg? = false
+    @on_guard = false
   end
 
   def neighbour_locations

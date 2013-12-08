@@ -13,7 +13,7 @@ describe Bot do
     @bot.player_id.should eq @generic_player_id
     @bot.bot_id.should eq @generic_bot_id
     @bot.pending_command.should eq nil
-    @bot.on_guard?.should eq false
+    @bot.on_guard.should eq false
   end
   after(:each) do
     @bot = nil
@@ -37,10 +37,8 @@ describe Bot do
     @bot.pending_command.should eq ['guard']
   end
   it "executes a pending 'move' command which changes it's state" do
-    [[9,10],[10,9],[11,10],[10,11]]. each do |direction| 
-      @bot.prepare_to(['move', direction])
-      @bot.execute
-      @bot.location.should eq direction
-    end
+    @bot.prepare_to(['move', [9,10]])
+    @bot.execute
+    @bot.location.should eq [9,10]
   end
 end

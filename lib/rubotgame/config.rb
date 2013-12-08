@@ -1,5 +1,6 @@
 require 'yaml'
-CONFIG = YAML.load_file('config.yml')
+
+CONFIG = YAML.load_file(File.join(File.dirname(__FILE__), 'config.yml'))
 
 class Configuration
   attr_accessor :max_hp, :max_turns, :spawns, :obstacles, :spawn_cycle_turns,

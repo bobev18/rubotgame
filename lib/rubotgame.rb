@@ -1,0 +1,7 @@
+# require 'rubotgame/gameserver'
+require 'rubotgame/run'
+require 'rubotgame/config'
+require 'rubotgame/game'
+require 'rubotgame/player'
+require 'rubotgame/bot'
+require 'rubotgame/board'
