@@ -9,8 +9,8 @@ class Game
     @config = config
     @player1 = Player.new @config, 1, "#FF0000"
     @player2 = Player.new @config, 2, "#0000FF"
-    @board = Board.new config
-    @max_turns = 100
+    @board = Board.new @config
+    @max_turns = @config.max_turns
     @turn = 0
     @players = [@player1, @player2]
   end
