@@ -9,7 +9,7 @@ describe Board do
   it "has the attributes" do
     @board.side.should eq @config.board_size
     @board.spawn_coord.should eq @config.spawns
-    @board.obstacle_coord.should eq @config.obstacles
+    @board.obstacle_coords.should eq @config.obstacles
   end
   after(:each) do
     @board = nil

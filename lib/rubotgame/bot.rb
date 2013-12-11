@@ -11,6 +11,8 @@ class Bot
     @on_guard = false
   end
 
+  # this should move under Board; also rename to match the guide:
+  #   rg.locs_around(self.location, filter_out=('invalid', 'obstacle'))
   def neighbour_locations
     [[location[0]-1,location[1]],[location[0],location[1]-1],
       [location[0]+1,location[1]],[location[0],location[1]+1]]
